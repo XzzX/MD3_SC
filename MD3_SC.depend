@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1356080399 source:/home/si11fita/CPII/MD3_SC/src/Color.cpp
+	"Color.h"
+
+1356080399 /home/si11fita/CPII/MD3_SC/src/Color.h
+
+1358767793 source:/home/si11fita/CPII/MD3_SC/src/Configuration.cpp
+	"Configuration.hpp"
+	<fstream>
+	"util.h"
+
+1358767805 /home/si11fita/CPII/MD3_SC/src/Configuration.hpp
+	<iostream>
+	<sstream>
+	<iomanip>
+	<string>
+	<stdexcept>
+
+1356080400 /home/si11fita/CPII/MD3_SC/src/util.h
+	<sstream>
+
+1356080399 source:/home/si11fita/CPII/MD3_SC/src/MeanVar.cpp
+	"MeanVar.h"
+	<cmath>
+
+1356080399 /home/si11fita/CPII/MD3_SC/src/MeanVar.h
+	<cmath>
+
+1358769417 source:/home/si11fita/CPII/MD3_SC/src/Perkolation.cpp
+	"Perkolation.h"
+
+1358769348 /home/si11fita/CPII/MD3_SC/src/Perkolation.h
+	<vector>
+
+1358768046 source:/home/si11fita/CPII/MD3_SC/src/main.cpp
+	<iostream>
+	<iomanip>
+	<sstream>
+	<fstream>
+	<boost/timer/timer.hpp>
+	"Vector.hpp"
+	"Configuration.hpp"
+	"MeanVar.h"
+	"util.h"
+
+1356080399 /home/si11fita/CPII/MD3_SC/src/Vector.hpp
+	<assert.h>
+	<cmath>
+	<math.h>
+	<ostream>
+
+1356080400 source:/home/si11fita/CPII/MD3_SC/src/util.cpp
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="MD3_SC" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/MD3_SC" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/MD3_SC" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add library="boost_system" />
+			<Add library="boost_timer" />
+		</Linker>
+		<Unit filename="src/Color.cpp" />
+		<Unit filename="src/Color.h" />
+		<Unit filename="src/Configuration.cpp" />
+		<Unit filename="src/Configuration.hpp" />
+		<Unit filename="src/Makefile" />
+		<Unit filename="src/MeanVar.cpp" />
+		<Unit filename="src/MeanVar.h" />
+		<Unit filename="src/Perkolation.cpp" />
+		<Unit filename="src/Perkolation.h" />
+		<Unit filename="src/Vector.hpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/util.cpp" />
+		<Unit filename="src/util.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
