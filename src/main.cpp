@@ -18,7 +18,15 @@ int main( unsigned int argc, char **argv ) {
 
 	std::cout << gConfig << std::endl;
 
-	Perkolation	perkolation(100, 0.5);
+	Perkolation	perkolation(40, 0.5);
+	perkolation.HoshenKopelman();
+
+	perkolation.DumpData();
+
+	perkolation.PrintGrid();
+
+	int a;
+	std::cin >> a;
 
     return 0;
 }
