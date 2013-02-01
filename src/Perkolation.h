@@ -11,7 +11,7 @@ class Perkolation{
 			EMPTY,
 			OCCUPIED
 		};
-		Perkolation(const unsigned long L, const double p);
+		Perkolation();
 
 		///dumps informations to logfiles
 		void	DumpData();
@@ -20,13 +20,18 @@ class Perkolation{
 
 		void	HoshenKopelman();
 
+		void	ResetGrid(const unsigned long L);
+		void	OccupyGrid(const double p);
+
+		long	GetLargestCluster();
+		bool	IsPercolating(const long clusterId);
+		bool	IsPercolating(const long x, const long y);
+
 	private:
 		std::vector<std::vector<GRID_STATE> >	mGrid;
 		std::vector<std::vector<long> >	mCluster;
 		std::vector<long>	mClusterConnection;
 
-		void	ResetGrid(const unsigned long L);
-		void	OccupyGrid(const double p);
 
 		long	ResolveClusterConnection(long m);
 };

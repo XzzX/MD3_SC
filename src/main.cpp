@@ -18,12 +18,18 @@ int main( unsigned int argc, char **argv ) {
 
 	std::cout << gConfig << std::endl;
 
-	Perkolation	perkolation(40, 0.5);
+	Perkolation	perkolation;
+
+	perkolation.ResetGrid(gConfig.mL);
+	perkolation.OccupyGrid(gConfig.mP);
+
 	perkolation.HoshenKopelman();
+
+	std::cout << "#perkolation?: \t" << perkolation.IsPercolating(gConfig.mL/2, gConfig.mL/2) << std::endl;
 
 	perkolation.DumpData();
 
-	perkolation.PrintGrid();
+	//perkolation.PrintGrid();
 
 	int a;
 	std::cin >> a;

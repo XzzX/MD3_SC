@@ -13,6 +13,9 @@ class Configuration{
 
 		std::string 	mLogName;					///<filename of the logfile
 
+		long			mL;							///<size of the simulation box
+		double			mP;							///<probability for occupation
+
 		///load basic configuration
 		Configuration();
 		///read out the command line parameters

@@ -9,9 +9,7 @@
 @param L length of the grid
 @param p probability for occupation
 **/
-Perkolation::Perkolation(const unsigned long L, const double p){
-	ResetGrid(L);
-	OccupyGrid(p);
+Perkolation::Perkolation(){
 
 }
 
@@ -41,7 +39,7 @@ void	Perkolation::HoshenKopelman(){
 				if ((i-1)>=0)
 					if (mGrid[i-1][j] == OCCUPIED){
 						//left connection
-						mCluster[i][j] = mCluster[i-1][j];	
+						mCluster[i][j] = mCluster[i-1][j];
 						mClusterConnection[ResolveClusterConnection(mCluster[i][j])]++;
 					}
 
@@ -50,7 +48,7 @@ void	Perkolation::HoshenKopelman(){
 						//already connected?
 						if (mCluster[i][j]==0){
 							//top connection
-							mCluster[i][j] = mCluster[i][j-1];	
+							mCluster[i][j] = mCluster[i][j-1];
 							mClusterConnection[ResolveClusterConnection(mCluster[i][j])]++;
 						}else{
 							//connection between two clusters
@@ -81,10 +79,39 @@ void	Perkolation::HoshenKopelman(){
 
 	for (long i = 0; i<mGrid.size(); i++)
 		for (long j=0; j<mGrid[i].size(); j++)
-			mCluster[i][j] = mClusterConnection[ResolveClusterConnection(mCluster[i][j])];
+			mCluster[i][j] = ResolveClusterConnection(mCluster[i][j]);
 }
 
-long Perkolation::ResolveClusterConnection(long m){
+long Perkolation::GetLargestCluster(){
+	long temp = 0;
+	for (long i=1; i<mClusterConnection.size(); i++)
+		if (mClusterConnection[temp]<mClusterConnection[i]) temp = i;
+	return temp;
+}
+
+bool Perkolation::IsPercolating(const long clusterId){
+	bool temp1 = false;
+	bool temp2 = false;
+	for (unsigned long i = 0; i<mCluster.size(); i++){
+		if (mCluster[i][0]==clusterId) temp1= true;
+		if (mCluster[i][mCluster.size()-1]==clusterId) temp2= true;
+	}
+	if (temp1&&temp2) return true; else {
+		temp1 = false;
+		temp2 = false;
+	}
+	for (unsigned long i = 0; i<mCluster.size(); i++){
+		if (mCluster[0][i]==clusterId) temp1= true;
+		if (mCluster[mCluster.size()-1][i]==clusterId) temp2= true;
+	}
+	return temp1&&temp2;
+}
+
+bool	Perkolation::IsPercolating(const long x, const long y){
+	if (mCluster[x][y]!=0) return IsPercolating(mCluster[x][y]); else return false;
+}
+
+long 	Perkolation::ResolveClusterConnection(long m){
 	while (mClusterConnection[m]<0) m = -mClusterConnection[m];
 	return m;
 }
@@ -119,7 +146,7 @@ void    Perkolation::DumpData(){
 
 	for (unsigned long i = 0; i<mGrid.size(); i++){
 		for (unsigned long j=0; j<mGrid[i].size(); j++)
-			fout << mCluster[i][j] << " ";
+			fout << mClusterConnection[mCluster[i][j]] << " ";
 		fout << std::endl;
 	}
 

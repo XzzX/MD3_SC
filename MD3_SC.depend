@@ -4,12 +4,12 @@
 
 1356080399 /home/si11fita/CPII/MD3_SC/src/Color.h
 
-1358767793 source:/home/si11fita/CPII/MD3_SC/src/Configuration.cpp
+1359711382 source:/home/si11fita/CPII/MD3_SC/src/Configuration.cpp
 	"Configuration.hpp"
 	<fstream>
 	"util.h"
 
-1358767805 /home/si11fita/CPII/MD3_SC/src/Configuration.hpp
+1359711278 /home/si11fita/CPII/MD3_SC/src/Configuration.hpp
 	<iostream>
 	<sstream>
 	<iomanip>
@@ -26,13 +26,17 @@
 1356080399 /home/si11fita/CPII/MD3_SC/src/MeanVar.h
 	<cmath>
 
-1358769417 source:/home/si11fita/CPII/MD3_SC/src/Perkolation.cpp
+1359711504 source:/home/si11fita/CPII/MD3_SC/src/Perkolation.cpp
 	"Perkolation.h"
+	<iostream>
+	<fstream>
+	"Configuration.hpp"
 
-1358769348 /home/si11fita/CPII/MD3_SC/src/Perkolation.h
+1359711200 /home/si11fita/CPII/MD3_SC/src/Perkolation.h
 	<vector>
+	"random.h"
 
-1358768046 source:/home/si11fita/CPII/MD3_SC/src/main.cpp
+1359711659 source:/home/si11fita/CPII/MD3_SC/src/main.cpp
 	<iostream>
 	<iomanip>
 	<sstream>
@@ -42,6 +46,7 @@
 	"Configuration.hpp"
 	"MeanVar.h"
 	"util.h"
+	"Perkolation.h"
 
 1356080399 /home/si11fita/CPII/MD3_SC/src/Vector.hpp
 	<assert.h>
@@ -50,4 +55,12 @@
 	<ostream>
 
 1356080400 source:/home/si11fita/CPII/MD3_SC/src/util.cpp
+
+1359709184 source:/home/si11fita/CPII/MD3_SC/src/random.cpp
+	"random.h"
+	<time.h>
+
+1359709184 /home/si11fita/CPII/MD3_SC/src/random.h
+	<boost/random/mersenne_twister.hpp>
+	<boost/random/uniform_01.hpp>
 
