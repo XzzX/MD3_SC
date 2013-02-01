@@ -5,6 +5,9 @@
 
 #include	"random.h"
 
+class Vector;
+class MeanVar;
+
 class Perkolation{
 	public:
 		enum GRID_STATE {
@@ -26,6 +29,9 @@ class Perkolation{
 		long	GetLargestCluster();
 		bool	IsPercolating(const long clusterId);
 		bool	IsPercolating(const long x, const long y);
+		Vector	GetCenterOfMass(const long clusterId);
+
+		void	MR(const Vector& CM, const double dR, std::vector<MeanVar>& MR);
 
 	private:
 		std::vector<std::vector<GRID_STATE> >	mGrid;

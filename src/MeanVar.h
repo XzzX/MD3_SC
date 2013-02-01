@@ -41,7 +41,7 @@ void MeanVar::Add(const double& x){
 }
 
 inline
-void MeanVar::Clear(const double& null){
+void MeanVar::Clear(const double& null = 0.0){
 	m_x = null;
 	m_x2 = null;
 	m_n = 0;

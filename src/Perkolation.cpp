@@ -4,6 +4,8 @@
 #include	<fstream>
 
 #include	"Configuration.hpp"
+#include	"Vector.hpp"
+#include	"MeanVar.h"
 
 /**
 @param L length of the grid
@@ -109,6 +111,30 @@ bool Perkolation::IsPercolating(const long clusterId){
 
 bool	Perkolation::IsPercolating(const long x, const long y){
 	if (mCluster[x][y]!=0) return IsPercolating(mCluster[x][y]); else return false;
+}
+
+Vector	Perkolation::GetCenterOfMass(const long clusterId){
+	Vector	temp(0,0,0);
+	long	n = 0;
+	for (unsigned long i = 0; i<mCluster.size(); i++)
+		for (unsigned long j=0; j<mCluster[i].size(); j++){
+			if (mCluster[i][j]==clusterId) temp += Vector(i,j,0);
+			n++;
+		}
+	return temp/n;
+}
+
+void	Perkolation::MR(const Vector& CM, const double dR, std::vector<MeanVar>& MR){
+	std::vector<long>	masses;
+	masses.resize(MR.size(),0);
+
+	for (unsigned long i = 0; i<mGrid.size(); i++)
+		for (unsigned long j=0; j<mGrid[i].size(); j++){
+			if (mGrid[i][j]==OCCUPIED) masses[int(norm(Vector(i,j,0)-CM)/dR)]++;
+		}
+
+	for (unsigned long i = 0; i<MR.size(); i++)
+		MR[i].Add(masses[i]);
 }
 
 long 	Perkolation::ResolveClusterConnection(long m){

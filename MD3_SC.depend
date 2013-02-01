@@ -4,12 +4,12 @@
 
 1356080399 /home/si11fita/CPII/MD3_SC/src/Color.h
 
-1359711382 source:/home/si11fita/CPII/MD3_SC/src/Configuration.cpp
+1359714594 source:/home/si11fita/CPII/MD3_SC/src/Configuration.cpp
 	"Configuration.hpp"
 	<fstream>
 	"util.h"
 
-1359711278 /home/si11fita/CPII/MD3_SC/src/Configuration.hpp
+1359713833 /home/si11fita/CPII/MD3_SC/src/Configuration.hpp
 	<iostream>
 	<sstream>
 	<iomanip>
@@ -23,20 +23,22 @@
 	"MeanVar.h"
 	<cmath>
 
-1356080399 /home/si11fita/CPII/MD3_SC/src/MeanVar.h
+1359713682 /home/si11fita/CPII/MD3_SC/src/MeanVar.h
 	<cmath>
 
-1359711504 source:/home/si11fita/CPII/MD3_SC/src/Perkolation.cpp
+1359713646 source:/home/si11fita/CPII/MD3_SC/src/Perkolation.cpp
 	"Perkolation.h"
 	<iostream>
 	<fstream>
 	"Configuration.hpp"
+	"Vector.hpp"
+	"MeanVar.h"
 
-1359711200 /home/si11fita/CPII/MD3_SC/src/Perkolation.h
+1359713605 /home/si11fita/CPII/MD3_SC/src/Perkolation.h
 	<vector>
 	"random.h"
 
-1359711659 source:/home/si11fita/CPII/MD3_SC/src/main.cpp
+1359714041 source:/home/si11fita/CPII/MD3_SC/src/main.cpp
 	<iostream>
 	<iomanip>
 	<sstream>

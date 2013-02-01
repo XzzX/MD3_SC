@@ -18,21 +18,42 @@ int main( unsigned int argc, char **argv ) {
 
 	std::cout << gConfig << std::endl;
 
-	Perkolation	perkolation;
+	gConfig.SaveConfiguration();
 
-	perkolation.ResetGrid(gConfig.mL);
-	perkolation.OccupyGrid(gConfig.mP);
+	std::vector<MeanVar>	MR;
+	MR.resize(int(ceil(1.5*gConfig.mL/gConfig.mDeltaR)));
+	for (long i=0; i<MR.size(); i++)
+		MR[i].Clear();
 
-	perkolation.HoshenKopelman();
+	while (gConfig.mRuns>0){
+		Perkolation	perkolation;
 
-	std::cout << "#perkolation?: \t" << perkolation.IsPercolating(gConfig.mL/2, gConfig.mL/2) << std::endl;
+		perkolation.ResetGrid(gConfig.mL);
+		perkolation.OccupyGrid(gConfig.mP);
 
-	perkolation.DumpData();
+		perkolation.HoshenKopelman();
+
+		long	lCluster = perkolation.GetLargestCluster();
+		if (perkolation.IsPercolating(lCluster)){
+			perkolation.MR(perkolation.GetCenterOfMass(lCluster), gConfig.mDeltaR, MR);
+			gConfig.mRuns--;
+			std::cout << gConfig.mRuns << std::endl;
+		}
+	}
+
+    std::fstream fout((gConfig.mLogName+"_MR.txt").c_str(), std::fstream::out);
+
+	fout << gConfig;
+
+	for (long i = 0; i<MR.size(); i++){
+		fout << gConfig.mDeltaR * i << "\t" << MR[i].Mean() << "\t" << MR[i].Error() << std::endl;
+	}
+
+    fout.close();
+
+	//perkolation.DumpData();
 
 	//perkolation.PrintGrid();
-
-	int a;
-	std::cin >> a;
 
     return 0;
 }
