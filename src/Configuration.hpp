@@ -15,6 +15,9 @@ class Configuration{
 
 		long			mL;							///<size of the simulation box
 		double			mP;							///<probability for occupation
+		double			mPStart;
+		double			mPStop;
+		double			mPStep;
 		double			mDeltaR;					///<delta R for M(R)
 		long			mRuns;						///< simulations runs
 

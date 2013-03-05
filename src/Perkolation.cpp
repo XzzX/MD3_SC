@@ -91,6 +91,10 @@ long Perkolation::GetLargestCluster(){
 	return temp;
 }
 
+long Perkolation::GetClusterSize(const long clusterId){
+	return mClusterConnection[clusterId];
+}
+
 bool Perkolation::IsPercolating(const long clusterId){
 	bool temp1 = false;
 	bool temp2 = false;

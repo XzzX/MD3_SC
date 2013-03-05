@@ -27,6 +27,7 @@ class Perkolation{
 		void	OccupyGrid(const double p);
 
 		long	GetLargestCluster();
+		long	GetClusterSize(const long clusterId);
 		bool	IsPercolating(const long clusterId);
 		bool	IsPercolating(const long x, const long y);
 		Vector	GetCenterOfMass(const long clusterId);
